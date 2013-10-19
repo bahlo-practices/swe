@@ -1,4 +1,4 @@
-# Practice 1
+# Preparation
 
 ## Aufgabe: 
 > Erstellen Sie den Use Case "Cocktail mischen" mit einer textuellen Beschreibung auf einem Blatt Papier. 
@@ -18,12 +18,12 @@
 ----
 
 ### Hauptszenario
-| Schritt | Aktion                                                  |
-| ------- | ------------------------------------------------------- |
-| 1       | Kommandos werden nach Rezept an Dosierer geschickt      |
-| 2       | Ventil von Dosierer X wird geöffnet                     |
+| Schritt | Aktion                                                                  |
+| ------- | ----------------------------------------------------------------------- |
+| 1       | Kommandos werden nach Rezept an Dosierer geschickt                      |
+| 2       | Ventil von Dosierer X wird geöffnet                                     |
 | 3       | Wenn Wage Delta erreicht/überschritten, Ventil von Dosierer X schließen |
-| 4       | Mixer und/oder Stampfer werden für eine Zeit aktiviert  |
+| 4       | Mixer und/oder Stampfer werden für eine Zeit aktiviert                  |
 
 ### Erweiterungen
 | Schritt | Bedinung                | Aktion                  |
