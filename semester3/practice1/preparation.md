@@ -10,9 +10,9 @@
 
 ----
 
-- **Vorbedinung:** System ist gestartet
+- **Vorbedingung:** System ist gestartet
 - **Minimale Nachbedinung:** Das System bietet Cocktais an und erwartet Eingabe
-- **Nachbedinung zum Hauptszenario:** Der Cocktail ist entleer und der Mischbehälter gereinigt
+- **Nachbedingung zum Hauptszenario:** Der Cocktail ist entleert und der Mischbehälter gereinigt
 - **Auslöser:** Der Benutzer wählt einen Cocktail aus
 
 ----
@@ -22,7 +22,7 @@
 | ------- | ----------------------------------------------------------------------- |
 | 1       | Kommandos werden nach Rezept an Dosierer geschickt                      |
 | 2       | Ventil von Dosierer X wird geöffnet                                     |
-| 3       | Wenn Wage Delta erreicht/überschritten, Ventil von Dosierer X schließen |
+| 3       | Wenn Waage Delta erreicht/überschritten, Ventil von Dosierer X schließen |
 | 4       | Mixer und/oder Stampfer werden für eine Zeit aktiviert                  |
 
 ### Erweiterungen
