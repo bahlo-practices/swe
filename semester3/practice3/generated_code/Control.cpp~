@@ -14,7 +14,8 @@ using namespace std;
 Control::Control()
 {    
     // Read ingredients
-    readIngredients("zutaten.txt");
+    ingredients = vector<string>*;
+    readList(ingredients, "zutaten.txt");
 
     // Create objects
     scale = new Scale();

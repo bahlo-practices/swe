@@ -1,9 +1,7 @@
 //@(#) MixableRecipeBook.cpp
 
-#include <vector>
 
 #include "MixableRecipeBook.h"
-
 //
 Rezept MixableRecipeBook::getReceipes()
 {
@@ -11,7 +9,7 @@ Rezept MixableRecipeBook::getReceipes()
 }
 
 //
-MixableRecipeBook::MixableRecipeBook(vector<string>* ingredients)
+MixableRecipeBook::MixableRecipeBook(std::string ingredients)
 {
     
 }

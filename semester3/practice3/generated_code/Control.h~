@@ -3,9 +3,6 @@
 #ifndef CONTROL_H_H
 #define CONTROL_H_H
 
-#include <vector>
-#include <String>
-
 #include "Scale.h"
 #include "DosingFeeder.h"
 #include "Pounder.h"
