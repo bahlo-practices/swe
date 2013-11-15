@@ -1,8 +1,8 @@
-#import <iostream>
-#import "Control.h"
+#include <iostream>
+#include "Control.h"
 
 int main() {
-  control = new Control();
+  Control* control = new Control();
   
   return 0;
 }

@@ -4,7 +4,7 @@
 #define CONTROL_H_H
 
 #include <vector>
-#include <String>
+#include <string>
 
 #include "Scale.h"
 #include "DosingFeeder.h"
@@ -22,7 +22,7 @@ public:
     //
     Control();
     //
-    void readIngredients();
+    void readIngredients(string);
     //
     void startTurbo();
     //
@@ -33,13 +33,10 @@ private:
     bool turbo;
     
     //
-    unsigned int uptime;
-    
-    //
     vector<string>* ingredients;
     
     //
-    vector<DosingFeeder*> dosingFeeder;
+    DosingFeeder dosingFeeder[10];
     
     //
     MixableRecipeBook mixableRecipeBook;
