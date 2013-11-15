@@ -1,0 +1,22 @@
+//@(#) Pounder.cpp
+
+
+                    
+//
+void Pounder::stop()
+{
+    
+}
+
+//
+Pounder::Pounder()
+{
+    
+}
+
+//
+void Pounder::start()
+{
+    
+}
+

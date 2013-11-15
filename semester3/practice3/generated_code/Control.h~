@@ -1,42 +1,36 @@
-//@(#) Control.h
-
-#ifndef CONTROL_H_H
-#define CONTROL_H_H
-
+#endif
 #include <vector>
 #include <string>
-
 #include "Scale.h"
 #include "DosingFeeder.h"
 #include "Pounder.h"
 #include "Mixer.h"
 #include "MixableRecipeBook.h"
-
-using namespace std;
+#include "string.h"
 
 //Steuert den Ablauf und weist den Dosierer an
 class Control
 {
+    public:
     
-public:
-    //
+    // Constructor
     Control();
+    
     //
-    void readIngredients(string);
+    void readIngredients(std::string filename);
+    
     //
     void startTurbo();
+    
     //
     void stopTurbo();
-    
-private:
-    //
-    bool turbo;
-    
-    //
-    vector<string>* ingredients;
+    private:
     
     //
     DosingFeeder dosingFeeder[10];
+    
+    //
+    std::vector<std::string> * ingredients;
     
     //
     MixableRecipeBook mixableRecipeBook;
@@ -50,7 +44,7 @@ private:
     //
     Scale scale;
     
+    //
+    bool turbo;
     
 };
-
-#endif

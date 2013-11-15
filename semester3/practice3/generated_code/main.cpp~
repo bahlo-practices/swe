@@ -2,7 +2,7 @@
 #include "Control.h"
 
 int main() {
-  Control control = new Control();
+  Control* control = new Control();
   
   return 0;
 }

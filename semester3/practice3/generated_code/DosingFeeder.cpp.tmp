@@ -1,0 +1,22 @@
+//@(#) DosingFeeder.cpp
+
+
+                         
+//
+void DosingFeeder::open()
+{
+    
+}
+
+//
+void DosingFeeder::close()
+{
+    
+}
+
+//
+DosingFeeder::DosingFeeder()
+{
+    
+}
+

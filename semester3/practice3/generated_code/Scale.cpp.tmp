@@ -1,0 +1,22 @@
+//@(#) Scale.cpp
+
+
+                  
+//
+unsigned int Scale::getWeight()
+{
+    return 0;
+}
+
+//
+Scale::Scale()
+{
+    
+}
+
+//
+void Scale::setOffset(int _offset)
+{
+    
+}
+

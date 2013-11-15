@@ -1,11 +1,11 @@
-#include <vector>
-#include <string>
-#include "Scale.h"
-#include "DosingFeeder.h"
-#include "Pounder.h"
-#include "Mixer.h"
-#include "MixableRecipeBook.h"
-#include "string.h"
+                 
+                 
+                  
+                         
+                    
+                  
+                              
+                   
 
 //Steuert den Ablauf und weist den Dosierer an
 class Control
