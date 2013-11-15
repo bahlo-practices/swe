@@ -1,0 +1,9 @@
+#import <iostream>
+#import "Control.h"
+
+int main() {
+  control = new Control();
+  control.start();
+  
+  return 0;
+}
