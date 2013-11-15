@@ -5,33 +5,34 @@
 #include "MixableRecipeBook.h"
 
 //
-vector<Rezept> MixableRecipeBook::getReceipes()
+MixableRecipeBook::MixableRecipeBook() 
 {
-    return m_Rezepte;
+  // Fuck this shit
 }
 
 //
 MixableRecipeBook::MixableRecipeBook(vector<string>* ingredients)
 {
-    new Rezeptbuch(); // Chris' fault
-    int ingredientsCount = ingredients.size();
+    Rezeptbuch();
     
-    for(int i = 0, int length = getAnzahlRezepte(); i < length; i++) {
-      Rezept recipe = m_Rezepte.at(i);
+    int recipeCount = getAnzahlRezepte();
+    for(int i = 0; i < recipeCount; i++) {
+      Rezept* recipe = getRezept(i);
       
-      for(int j = 0, int length = recipe.getAnzahlRezeptschritte(); j < length; j++) {
-	Rezeptschritt recipeStep = recipe.getRezeptschritt(j);
+      int recipeStepCount = recipe->getAnzahlRezeptschritte();
+      for(int j = 0; j < recipeStepCount ; j++) {
+	Rezeptschritt* recipeStep = recipe->getRezeptSchritt(j);
 	bool match = false;
 	
-	for(int k = 0; k < ingredientsCount; k++) {
-	  if(recipeStep.m_Zutat == ingredients.at(k)*) {
+	for(int k = 0; k < 10; k++) { // 10 ingredients
+	  if(recipeStep->getZutat() == ingredients->at(k)) {
 	    match = true;
 	    break;
 	  }
 	}
 	
 	if(!match) {
-	  m_Rezepte.erase(m_Rezepte.end() - i);
+	  // m_Rezepte.erase(m_Rezepte.end() - i);
 	}
       }
     }

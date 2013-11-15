@@ -12,8 +12,6 @@ class MixableRecipeBook: public Rezeptbuch
     
 public:
     //
-    vector<Rezept> getReceipes();
-    //
     MixableRecipeBook();
     MixableRecipeBook(vector<string>* ingredients);
     
