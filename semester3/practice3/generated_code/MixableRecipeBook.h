@@ -7,16 +7,14 @@
 #include "Rezeptbuch.h"
 #include <string>
 
-//Stellt alle mischbaren Rezepte bereit
+// Provides mixable recipe book
 class MixableRecipeBook: public Rezeptbuch
 {
-    
 public:
-    //
+    // Standard constructor
     MixableRecipeBook();
-    //
+    // Constructor with ingredient list
     MixableRecipeBook(std::vector<std::string> * ingredients);
-    
 };
 
 #endif

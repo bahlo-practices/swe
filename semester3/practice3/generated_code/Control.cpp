@@ -10,15 +10,15 @@
 
 using namespace std;
 
-// Constructor
+// Reads ingredients and filters recipe book
 Control::Control()
-{    
+{
     // Read ingredients
     readIngredients("zutaten.txt");
     mixableRecipeBook = MixableRecipeBook(ingredients);
 }
 
-//
+// Reads ingredients
 void Control::readIngredients(std::string filename)
 {
     ifstream in;
@@ -26,25 +26,25 @@ void Control::readIngredients(std::string filename)
     in.open(filename.c_str(), ios::in);
 
     if( !in ) {
-	string my_exception = "File not found: " + filename;
-	throw my_exception;
+	   string my_exception = "File not found: " + filename;
+	   throw my_exception;
     }
 
     string zeile;
     while(getline(in, zeile)){
-	ingredients->push_back(zeile);
+	   ingredients->push_back(zeile);
     }
 
     in.close();
 }
 
-//
+// Stops the turbo
 void Control::stopTurbo()
 {
     turbo = false;
 }
 
-//
+// Starts the turbo
 void Control::startTurbo()
 {
     turbo = true;
