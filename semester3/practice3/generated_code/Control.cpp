@@ -16,6 +16,8 @@ Control::Control()
     // Read ingredients
     readIngredients("zutaten.txt");
     mixableRecipeBook = MixableRecipeBook(ingredients);
+
+    mixableRecipeBook->printRecipes();
 }
 
 // Reads ingredients

@@ -4,3 +4,6 @@
 *.h~
 *.cpp~
 *.tmp
+
+*.sublime-project
+*.sublime-workspace

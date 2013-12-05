@@ -3,6 +3,8 @@
 #include <vector>
 #include "MixableRecipeBook.h"
 
+using namespace std;
+
 // Standard constructor
 MixableRecipeBook::MixableRecipeBook() {}
 
@@ -35,3 +37,17 @@ MixableRecipeBook::MixableRecipeBook(std::vector<std::string> * ingredients)
     }
 }
 
+void MixableRecipeBook::printRecipes()
+{
+    int recipeCount = getAnzahlRezepte();
+    for(int i = 0;i < recipeCount;++i) {
+        Rezept *recipe = getRezept(i);
+        cout << recipe.getName() << endl;
+        int stepCount = recipe.getAnzahlRezeptschritte();
+        for(int j = 0;j < stepCount;++j) {
+            Rezeptschritt *step = recipe.getRezept(j);
+            cout << step.getZutat() << endl;
+        }
+        cout << '----' << endl;
+    }
+}
