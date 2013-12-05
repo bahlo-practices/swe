@@ -11,18 +11,16 @@
 using namespace std;
 
 // Reads ingredients and filters recipe book
-Control::Control()
-{
+Control::Control() {
     // Read ingredients
     readIngredients("zutaten.txt");
     mixableRecipeBook = MixableRecipeBook(ingredients);
 
-    mixableRecipeBook->printRecipes();
+    mixableRecipeBook.printRecipes();
 }
 
 // Reads ingredients
-void Control::readIngredients(std::string filename)
-{
+void Control::readIngredients(std::string filename) {
     ifstream in;
 
     in.open(filename.c_str(), ios::in);
@@ -41,13 +39,11 @@ void Control::readIngredients(std::string filename)
 }
 
 // Stops the turbo
-void Control::stopTurbo()
-{
+void Control::stopTurbo() {
     turbo = false;
 }
 
 // Starts the turbo
-void Control::startTurbo()
-{
+void Control::startTurbo() {
     turbo = true;
 }

@@ -1,5 +1,5 @@
 //@(#) MixableRecipeBook.cpp
-
+#include <iostream>
 #include <vector>
 #include "MixableRecipeBook.h"
 
@@ -42,12 +42,14 @@ void MixableRecipeBook::printRecipes()
     int recipeCount = getAnzahlRezepte();
     for(int i = 0;i < recipeCount;++i) {
         Rezept *recipe = getRezept(i);
-        cout << recipe.getName() << endl;
-        int stepCount = recipe.getAnzahlRezeptschritte();
+        cout << recipe->getName() << endl;
+        int stepCount = recipe->getAnzahlRezeptschritte();
         for(int j = 0;j < stepCount;++j) {
-            Rezeptschritt *step = recipe.getRezept(j);
-            cout << step.getZutat() << endl;
+            Rezeptschritt *step = recipe->getRezeptSchritt(j);
+            cout << step->getZutat() << endl;
+            delete step;
         }
-        cout << '----' << endl;
+        delete recipe;
+        cout << "----" << endl;
     }
 }
