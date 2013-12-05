@@ -14,7 +14,7 @@ public:
     // Standard constructor
     MixableRecipeBook();
     // Constructor with ingredient list
-    MixableRecipeBook(std::vector<std::string> * ingredients);
+    MixableRecipeBook(std::vector<std::string> *ingredients);
 
     // Print recipes
     void printRecipes(void);

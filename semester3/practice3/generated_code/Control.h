@@ -6,7 +6,6 @@
 #include "Pounder.h"
 #include "Mixer.h"
 #include "MixableRecipeBook.h"
-#include "string.h"
 
 // Steuert den Ablauf und weist den Dosierer an
 class Control
@@ -25,7 +24,7 @@ private:
     // The 10 dosing feeders
     DosingFeeder dosingFeeder[10];
     // The ingredients
-    std::vector<std::string> * ingredients;
+    std::vector<std::string> ingredients;
     // The recipe book
     MixableRecipeBook mixableRecipeBook;
     // The mixer

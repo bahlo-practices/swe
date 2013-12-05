@@ -8,14 +8,11 @@
 
 #include "Control.h"
 
-using namespace std;
-
 // Reads ingredients and filters recipe book
 Control::Control() {
     // Read ingredients
     readIngredients("zutaten.txt");
-    mixableRecipeBook = MixableRecipeBook(ingredients);
-
+    mixableRecipeBook = MixableRecipeBook(&ingredients);
     mixableRecipeBook.printRecipes();
 }
 
@@ -30,9 +27,9 @@ void Control::readIngredients(std::string filename) {
 	   throw my_exception;
     }
 
-    string zeile;
+    std::string zeile;
     while(getline(in, zeile)){
-	   ingredients->push_back(zeile);
+	    ingredients.push_back(zeile);
     }
 
     in.close();
