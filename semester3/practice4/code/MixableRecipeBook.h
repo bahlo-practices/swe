@@ -17,7 +17,7 @@ public:
     MixableRecipeBook(std::vector<std::string> * ingredients);
 
     // Print recipes
-    void printRecipes(void);
+    void printRecipes();
 };
 
 #endif
