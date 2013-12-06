@@ -1,7 +1,7 @@
-CC=/usr/local/bin/g++-4.7
+CC=g++
 CFLAGS=-Wall
 LDFLAGS=
-SOURCES=Control.cpp Dosingfeeder.cpp MixableRecipeBook.cpp Mixer.cpp Pounder.cpp Scale.cpp
+SOURCES=Control.cpp DosingFeeder.cpp MixableRecipeBook.cpp Mixer.cpp Pounder.cpp Scale.cpp
 MAIN=main.cpp
 EXECUTABLE=cocktail.o
 INCLUDE=Rezeptbuch.o
