@@ -8,18 +8,18 @@
 //
 class Subject
 {
-    
+
 public:
     //
-    void attach(const Observer * observer);
+    void attach(Observer * observer);
     //
-    void detach(const Observer * observer);
+    void detach(Observer * observer);
     //
     void notify();
-    
+
 private:
     //
-    std::vector<Observer *> observers;    
+    std::vector<Observer *> observers;
 };
 
 #endif
