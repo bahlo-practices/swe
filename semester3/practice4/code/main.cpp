@@ -3,7 +3,7 @@
 
 int main() {
   // Create control class
-  Control *control = new Control();
+  Control control;
 
   return 0;
 }
