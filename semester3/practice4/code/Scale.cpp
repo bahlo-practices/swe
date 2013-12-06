@@ -4,25 +4,22 @@
 #include "Scale.h"
 
 //
-Scale::Scale()
-{
-    
-}
+Scale::Scale() : offset(0), weight(0) {}
 
-void Scale::resetDelta() 
-{
-  offset = weight;
-}
-
-int Scale::getWeight() 
+int Scale::getWeight()
 {
   if(offset > weight) return 0;
-  return weight - offset;
+  return weight + offset;
 }
 
-void Scale::adjustWeightBy(int by) 
+void Scale::resetDelta()
 {
-  weight += (weight + by < 0) 
-    ? 0 
+  offset = 0;
+}
+
+void Scale::adjustWeightBy(int by)
+{
+  weight += (weight + by < 0)
+    ? 0
     : weight + by;
 }

@@ -7,17 +7,13 @@
 //Die Waage mischt das Gewicht des Mischbehälters
 class Scale: public Subject
 {
-    
+
 public:
-    //
-    int getWeight();
-    //
     Scale();
-    //
-    void resetDelta();    
+    int getWeight();
+    void resetDelta();
     void adjustWeightBy(int weight);
 private:
-    //
     int offset;
     int weight;
 };
