@@ -25,7 +25,6 @@ public:
 private:
     //
     Scale * subject;
-    
 };
 
 #endif
