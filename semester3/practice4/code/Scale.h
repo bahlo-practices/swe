@@ -3,8 +3,9 @@
 #ifndef SCALE_H_H
 #define SCALE_H_H
 
+#include "Subject.h"
 //Die Waage mischt das Gewicht des Mischbehälters
-class Scale
+class Scale: public Subject
 {
     
 public:

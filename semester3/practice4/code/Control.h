@@ -22,6 +22,9 @@ class Control
     
     // Stop turbo
     void stopTurbo();
+    
+    //
+    void update();
     private:
     // The 10 dosing feeders
     DosingFeeder dosingFeeder[10];
@@ -38,10 +41,11 @@ class Control
     // The pounder
     Pounder pounder;
     
-    // The scale
+    //
     Scale scale;
     
     // Turbomode?
     bool turbo;
     
+
 };

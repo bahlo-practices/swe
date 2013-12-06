@@ -42,3 +42,9 @@ void Control::stopTurbo() {
 void Control::startTurbo() {
     turbo = true;
 }
+
+//
+void Control::update()
+{
+    
+}
