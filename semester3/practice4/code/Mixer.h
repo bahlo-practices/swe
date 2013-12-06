@@ -6,29 +6,19 @@
 //Der Mixer mischt, entleert und reinigt den Mischbehälrter
 class Mixer
 {
-    
+
 public:
-    //
-    void clean();
-    //
     Mixer();
-    //
-    void startDrain();
-    //
-    void startMixing();
-    //
-    void stopDrain();
-    //
-    void stopMixing();
-    
+    void drain();
+    void mix(int seconds);
+    void clean();
 private:
-    //
     bool isCleaned;
-    
-    //
-    bool istEmpty;
-    
-    
+
+    void start();
+    void stop();
+    void open();
+    void close();
 };
 
 #endif

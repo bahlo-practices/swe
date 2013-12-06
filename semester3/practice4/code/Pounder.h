@@ -6,15 +6,14 @@
 //Der Stampfer stampft für eine bestimmte Zeit
 class Pounder
 {
-    
+
 public:
     //
     Pounder();
-    //
+    void pound(int seconds);
+private:
     void start();
-    //
     void stop();
-    
 };
 
 #endif
