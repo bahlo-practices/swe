@@ -3,6 +3,7 @@
 #ifndef MIXABLERECIPEBOOK_H_H
 #define MIXABLERECIPEBOOK_H_H
 
+#include "string.h"
 #include <string>
 #include <vector>
 #include "Rezeptbuch.h"
@@ -13,7 +14,7 @@ public:
     // Standard constructor
     MixableRecipeBook();
     // Constructor with ingredient list
-    MixableRecipeBook(std::vector<std::string> *ingredients);
+    MixableRecipeBook(std::vector<std::string> * ingredients);
 
     // Print recipes
     void printRecipes(void);

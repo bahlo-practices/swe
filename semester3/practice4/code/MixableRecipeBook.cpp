@@ -10,7 +10,7 @@ MixableRecipeBook::MixableRecipeBook() {
 }
 
 // Constructor with ingredient list
-MixableRecipeBook::MixableRecipeBook(std::vector<std::string> *ingredients) {
+MixableRecipeBook::MixableRecipeBook(std::vector<std::string> * ingredients) {
   Rezeptbuch();
 
   // Loop through recipes

@@ -7,7 +7,7 @@
 
 #include "Control.h"
 
-// Reads ingredients and filters recipe book
+// Constructor
 Control::Control() {
     // Read ingredients
     readIngredients("zutaten.txt");
@@ -15,7 +15,7 @@ Control::Control() {
     mixableRecipeBook.printRecipes();
 }
 
-// Reads ingredients
+// Read ingredients
 void Control::readIngredients(std::string filename) {
     ifstream in;
 
@@ -33,12 +33,12 @@ void Control::readIngredients(std::string filename) {
     in.close();
 }
 
-// Stops the turbo
+// Stop turbo
 void Control::stopTurbo() {
     turbo = false;
 }
 
-// Starts the turbo
+// Start turbo
 void Control::startTurbo() {
     turbo = true;
 }
