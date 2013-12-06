@@ -22,8 +22,7 @@ void Control::readIngredients(std::string filename) {
     in.open(filename.c_str(), ios::in);
 
     if( !in ) {
-	   string my_exception = "File not found: " + filename;
-	   throw my_exception;
+	   throw "File not found: " + filename;
     }
 
     std::string zeile;
