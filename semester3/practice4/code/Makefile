@@ -1,21 +1,22 @@
 CC=/usr/local/bin/g++-4.7
 CFLAGS=-Wall
 LDFLAGS=
-# Default
-SOURCES=main.cpp Control.cpp Dosingfeeder.cpp MixableRecipeBook.cpp Mixer.cpp Pounder.cpp Scale.cpp
+SOURCES=Control.cpp Dosingfeeder.cpp MixableRecipeBook.cpp Mixer.cpp Pounder.cpp Scale.cpp
+MAIN=main.cpp
 EXECUTABLE=cocktail.o
+INCLUDE=Rezeptbuch.o
 # Tests
-TESTSOURCES=test.cpp control.cpp dosingfeeder.cpp mixablerecipebook.cpp mixer.cpp pounder.cpp scale.cpp
+TEST=test.cpp
 TESTEXECUTABLE=test.o
 
 all:
-	${CC} ${CFLAGS} -o ${EXECUTABLE} ${SOURCES} Rezeptbuch.o
+	${CC} ${CFLAGS} -o ${EXECUTABLE} ${MAIN} ${SOURCES} ${INCLUDE}
 
 run: all
 	./${EXECUTABLE}
 
 test:
-	${CC} ${CFLAGS} -o ${TESTEXECUTABLE} ${TESTSOURCES} Rezeptbuch.o && ./${TESTEXECUTABLE}
+	${CC} ${CFLAGS} -o ${TESTEXECUTABLE} ${TEST} ${TESTSOURCES} ${INCLUDE} && ./${TESTEXECUTABLE}
 
 clean:
 	rm `find . -name "*o" ! -name "Rezeptbuch.o"`
