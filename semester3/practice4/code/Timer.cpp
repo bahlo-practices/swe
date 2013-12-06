@@ -2,15 +2,14 @@
 
 #include <ctime>
 
-Timer::Timer() {}
+bool Timer::turbo = false;
 
-static void Timer::setTurbo( bool turbo ) {
-  this::turbo = turbo;
+void Timer::setTurbo( bool on ) {
+  Timer::turbo = on;
 }
 
-
-static void Timer::sleep (long milliseconds) {
-  if(this::turbo) milliseconds /= 10;
+void Timer::wait(long milliseconds) {
+  if(Timer::turbo) milliseconds /= 10;
   clock_t limit;
   clock_t now = clock();
   limit = now + milliseconds * CLOCKS_PER_SEC /1000;

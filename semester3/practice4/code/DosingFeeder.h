@@ -4,27 +4,29 @@
 #define DOSINGFEEDER_H_H
 
 #include "Observer.h"
+#include "MixableRecipeBook.h"
 #include "Scale.h"
 //Der Dosierer gibt die Zutat für eine bestimmte Zeit in den Mischbehälter
 class DosingFeeder: public Observer
 {
     
 public:
-    //
-    void close();
-    //
     DosingFeeder();
     //
     DosingFeeder(Scale & scale);
     //
-    void open();
+    void dose(Rezeptschritt & step);
     
-
     //
     void update();
 private:
     //
     Scale * subject;
+    bool isOpen;
+    
+    void open();
+    void close();
+    int targetWeight;
 };
 
 #endif

@@ -1,8 +1,7 @@
 .DS_Store
 *.bak
 *.o
-*.h~
-*.cpp~
+*~
 *.tmp
 
 *.sublime-project
