@@ -3,13 +3,12 @@
 #ifndef MIXABLERECIPEBOOK_H_H
 #define MIXABLERECIPEBOOK_H_H
 
-#include "string.h"
-#include "Rezeptbuch.h"
 #include <string>
+#include <vector>
+#include "Rezeptbuch.h"
 
 // Provides mixable recipe book
-class MixableRecipeBook: public Rezeptbuch
-{
+class MixableRecipeBook: public Rezeptbuch {
 public:
     // Standard constructor
     MixableRecipeBook();
