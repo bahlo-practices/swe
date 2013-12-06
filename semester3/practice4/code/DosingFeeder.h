@@ -13,7 +13,9 @@ public:
     //
     void close();
     //
-    DosingFeeder(Scale &scale);
+    DosingFeeder();
+    //
+    DosingFeeder(Scale & scale);
     //
     void open();
     
@@ -21,7 +23,6 @@ public:
     //
     void update();
 private:
-    
     //
     Scale * subject;
     

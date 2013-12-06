@@ -15,9 +15,14 @@ void DosingFeeder::close()
 }
 
 //
-DosingFeeder::DosingFeeder(Scale &scale)
+DosingFeeder::DosingFeeder()
 {
-    subject = scale;
+}
+
+//
+DosingFeeder::DosingFeeder(Scale & scale)
+{
+    subject = &scale;
 }
 
 
