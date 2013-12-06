@@ -10,17 +10,16 @@ class Scale: public Subject
     
 public:
     //
-    unsigned int getWeight();
+    int getWeight();
     //
     Scale();
     //
-    void setOffset(int _offset);
-    
+    void resetDelta();    
+    void adjustWeightBy(int weight);
 private:
     //
     int offset;
-    
-    
+    int weight;
 };
 
 #endif

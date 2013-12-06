@@ -2,11 +2,6 @@
 
 
 #include "Scale.h"
-//
-unsigned int Scale::getWeight()
-{
-    return 0;
-}
 
 //
 Scale::Scale()
@@ -14,9 +9,20 @@ Scale::Scale()
     
 }
 
-//
-void Scale::setOffset(int _offset)
+void Scale::resetDelta() 
 {
-    
+  offset = weight;
 }
 
+int Scale::getWeight() 
+{
+  if(offset > weight) return 0;
+  return weight - offset;
+}
+
+void Scale::adjustWeightBy(int by) 
+{
+  weight += (weight + by < 0) 
+    ? 0 
+    : weight + by;
+}
