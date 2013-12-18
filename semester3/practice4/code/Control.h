@@ -1,4 +1,4 @@
-#include <multimap>
+#include <map>
 #include <string>
 #include "Scale.h"
 #include "DosingFeeder.h"
@@ -34,7 +34,7 @@ class Control // controls workflow
     DosingFeeder dosingFeeder[10];
     
     // The ingredients
-    multimap<string, int> ingredients;
+    map<string, int> ingredients;
     
     // The recipe book
     MixableRecipeBook mixableRecipeBook;

@@ -23,8 +23,9 @@ void Control::readIngredients(const string& filename) {
     in.open(filename.c_str());
     if( !in ) throw "File not found: " + filename;
 
-    string line;
-    while(getline(in, line)) if(line.length > 2) ingredients.push_back(line);
+	string ingredient;
+	int feeder = 0;
+	while (getline(in, ingredient)) if (ingredient.length() > 2) ingredients.insert(make_pair(ingredient, feeder++));
 
     in.close();
 }
@@ -39,9 +40,10 @@ void Control::run(){
     cin >> cocktail;
 
     // mix it:
-    Rezept recipe = mixableRecipeBook.getRezept(cocktail-1); // recipeBook[0] = Cocktail #1
-    for(int recipeStep = 0; recipeStep < recipe.getAnzahlRezeptschritte(); recipeStep++) {
-        cout << "step " << recipeStep;
+    Rezept* recipe = mixableRecipeBook.getRezept(cocktail-1); // recipeBook[0] = Cocktail #1
+    for(int recipeStep = 0; recipeStep < recipe->getAnzahlRezeptschritte(); recipeStep++) {
+		int dosingf = ingredients[ recipe->getRezeptSchritt(recipeStep)->getZutat() ];
+		cout << "#" << dosingf << ": " << recipe->getRezeptSchritt(recipeStep)->getMenge() << endl;
         //#### MISSING #####
     }
 

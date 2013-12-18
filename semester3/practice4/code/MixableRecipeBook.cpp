@@ -1,8 +1,10 @@
 //@(#) MixableRecipeBook.cpp
 #include <iostream>
-#include <vector>
+#include <map>
 
 #include "MixableRecipeBook.h"
+
+using namespace std;
 
 // Standard constructor
 MixableRecipeBook::MixableRecipeBook() {
@@ -10,7 +12,7 @@ MixableRecipeBook::MixableRecipeBook() {
 }
 
 // Constructor with ingredient list
-MixableRecipeBook::MixableRecipeBook(std::vector<std::string> * ingredients) {
+MixableRecipeBook::MixableRecipeBook(const map<string, int>& ingredients) {
   Rezeptbuch();
 
   // Loop through recipes
@@ -30,24 +32,15 @@ MixableRecipeBook::MixableRecipeBook(std::vector<std::string> * ingredients) {
 
     // Loop through steps
     for(int j = 0; j < recipeStepCount; ++j) {
-      Rezeptschritt* recipeStep = recipe->getRezeptSchritt(j);
-      bool match = false;
-
-      // Loop through ingredients
-      int ingredientCount = ingredients->size();
-    	for(int k = 0; k < ingredientCount; ++k) {
-        std::string ingredient = recipeStep->getZutat();
-    	  if(ingredient == ingredients->at(k) || ingredient == "Mischen" || ingredient == "Stampfen") {
-    	    match = true;
-          break;
-    	  }
-    	}
-
-      // Ingredient not found, bye
-      if(!match) {
-        deleteRezept(i);
-        recipeCount--;
-      }
+		Rezeptschritt* recipeStep = recipe->getRezeptSchritt(j);
+		
+		string ingredient = recipeStep->getZutat();
+		if(ingredients.find(ingredient) != ingredients.end() || ingredient == "Mischen" || ingredient == "Stampfen") continue;
+    
+		// Ingredient not found, bye
+		deleteRezept(i);
+		recipeCount--;
+		break;
     }
   }
 }

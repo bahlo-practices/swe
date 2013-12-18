@@ -5,7 +5,7 @@
 
 #include "string.h"
 #include <string>
-#include <vector>
+#include <map>
 #include "Rezeptbuch.h"
 
 // Provides mixable recipe book
@@ -14,7 +14,7 @@ public:
     // Standard constructor
     MixableRecipeBook();
     // Constructor with ingredient list
-    MixableRecipeBook(std::vector<std::string> * ingredients);
+    MixableRecipeBook(const map<string, int>& ingredients);
 
     // Print recipes
     void printRecipes();
