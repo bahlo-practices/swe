@@ -56,7 +56,7 @@ void Control::run(){
 
         // clean:
         mixer.clean();
-    } else cerr << "Fehler: Ungültige Eingabe." << endl;
+    } else throw "Fehler: Ungültige Eingabe.";
     cout << endl << endl; // Next run!
 }
 
