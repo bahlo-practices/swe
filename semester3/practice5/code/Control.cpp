@@ -35,23 +35,29 @@ void Control::run(){
     mixableRecipeBook.printRecipes();
 
     // get user's choice:
-    cout << "Mische Cocktail #";
+    cout << "Cocktail wählen (0 zum Beenden): ";
     int cocktail;
     cin >> cocktail;
 
+    if(cocktail == 0) exit(0);
+
     // mix it:
     Rezept* recipe = mixableRecipeBook.getRezept(cocktail-1); // recipeBook[0] = Cocktail #1
-    for(int recipeStep = 0; recipeStep < recipe->getAnzahlRezeptschritte(); recipeStep++) {
-		int dosingf = ingredients[ recipe->getRezeptSchritt(recipeStep)->getZutat() ];
-		cout << "#" << dosingf << ": " << recipe->getRezeptSchritt(recipeStep)->getMenge() << endl;
-        //#### MISSING #####
-    }
+    if(recipe != NULL) {
+        cout << "Zutaten für "<< recipe->getName() << endl;
+        for(int recipeStep = 0; recipeStep < recipe->getAnzahlRezeptschritte(); recipeStep++) {
+            int dosingf = ingredients[ recipe->getRezeptSchritt(recipeStep)->getZutat() ];
+            cout << "#" << dosingf << ": " << recipe->getRezeptSchritt(recipeStep)->getMenge() << endl;
+            //#### MISSING #####
+        }
 
-    // drain it:
-    mixer.drain();
+        // drain it:
+        mixer.drain();
 
-    // clean:
-    mixer.clean();
+        // clean:
+        mixer.clean();
+    } else throw "Fehler: Ungültige Eingabe.";
+    cout << endl << endl; // Next run!
 }
 
 // Stop turbo
@@ -67,5 +73,5 @@ void Control::startTurbo() {
 //
 void Control::update()
 {
-    
+
 }

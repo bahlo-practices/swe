@@ -16,7 +16,7 @@ void Mixer::clean()
 	cout << endl << "Cleaning: ";
 	for (int i = 0; i < 5; i++){
 		Timer::wait(1000);
-		cout << "*";
+		cout << "*" << flush;
 	}
 	isCleaned = true;
 }
@@ -28,7 +28,7 @@ void Mixer::mix(int seconds)
   cout << endl << "Mixing (" << seconds << "s): ";
   for (int i = 0; i < seconds; i++){
 	Timer::wait(1000);
-	cout << "*";
+	cout << "*" << flush;
   }
   stop();
 }
@@ -40,7 +40,7 @@ void Mixer::drain()
   cout << endl << "Draining: ";
   for (int i = 0; i < 5; i++){
 	  Timer::wait(1000);
-	  cout << "*";
+	  cout << "*" << flush;
   }
   //#### MISSING: SCALE ######
   close();
