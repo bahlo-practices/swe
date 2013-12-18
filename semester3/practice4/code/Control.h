@@ -1,4 +1,4 @@
-#include <vector>
+#include <multimap>
 #include <string>
 #include "Scale.h"
 #include "DosingFeeder.h"
@@ -6,6 +6,8 @@
 #include "Mixer.h"
 #include "MixableRecipeBook.h"
 #include "string.h"
+
+using namespace std;
 
 class Control // controls workflow
 {
@@ -17,7 +19,7 @@ class Control // controls workflow
     void run();
     
     // Read ingredients
-    void readIngredients(const std::string& filename);
+    void readIngredients(const string& filename);
     
     // Start turbo
     void startTurbo();
@@ -32,7 +34,7 @@ class Control // controls workflow
     DosingFeeder dosingFeeder[10];
     
     // The ingredients
-    std::vector<std::string> ingredients;
+    multimap<string, int> ingredients;
     
     // The recipe book
     MixableRecipeBook mixableRecipeBook;
