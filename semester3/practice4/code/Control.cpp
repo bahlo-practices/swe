@@ -30,7 +30,26 @@ void Control::readIngredients(const string& filename) {
 }
 
 void Control::run(){
+    // show all available cocktails:
     mixableRecipeBook.printRecipes();
+
+    // get user's choice:
+    cout << "Mische Cocktail #";
+    int cocktail;
+    cin >> cocktail;
+
+    // mix it:
+    Rezept recipe = mixableRecipeBook.getRezept(cocktail-1); // recipeBook[0] = Cocktail #1
+    for(int recipeStep = 0; recipeStep < recipe.getAnzahlRezeptschritte(); recipeStep++) {
+        cout << "step " << recipeStep;
+        //#### MISSING #####
+    }
+
+    // drain it:
+    mixer.drain();
+
+    // clean:
+    mixer.clean();
 }
 
 // Stop turbo
