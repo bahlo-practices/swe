@@ -7,15 +7,17 @@
 #include "MixableRecipeBook.h"
 #include "string.h"
 
-// Steuert den Ablauf und weist den Dosierer an
-class Control
+class Control // controls workflow
 {
     public:
     // Constructor
     Control();
     
+    // control workflow
+    void run();
+    
     // Read ingredients
-    void readIngredients(std::string filename);
+    void readIngredients(const std::string& filename);
     
     // Start turbo
     void startTurbo();
@@ -46,6 +48,5 @@ class Control
     
     // Turbomode?
     bool turbo;
-    
 
 };

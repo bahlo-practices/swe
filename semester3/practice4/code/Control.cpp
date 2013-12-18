@@ -7,30 +7,30 @@
 
 #include "Control.h"
 
+using namespace std;
+
 // Constructor
 Control::Control() {
     // Read ingredients
     readIngredients("zutaten.txt");
-    mixableRecipeBook = MixableRecipeBook(&ingredients);
-    mixableRecipeBook.printRecipes();
+    mixableRecipeBook = MixableRecipeBook(ingredients);
 }
 
 // Read ingredients
-void Control::readIngredients(std::string filename) {
+void Control::readIngredients(const string& filename) {
     ifstream in;
 
-    in.open(filename.c_str(), ios::in);
+    in.open(filename.c_str());
+    if( !in ) throw "File not found: " + filename;
 
-    if( !in ) {
-	   throw "File not found: " + filename;
-    }
-
-    std::string zeile;
-    while(getline(in, zeile)){
-	    ingredients.push_back(zeile);
-    }
+    string line;
+    while(getline(in, line)) if(line.length > 2) ingredients.push_back(line);
 
     in.close();
+}
+
+void Control::run(){
+    mixableRecipeBook.printRecipes();
 }
 
 // Stop turbo
