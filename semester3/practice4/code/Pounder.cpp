@@ -1,14 +1,20 @@
 //@(#) Pounder.cpp
 
-
+#include <iostream>
 #include "Pounder.h"
 #include "Timer.h"
+
+using namespace std;
 
 Pounder::Pounder() {}
 
 void Pounder::pound(int seconds) {
   start();
-  Timer::wait(seconds * 1000);
+  cout << endl << "Pounding (" << seconds << "s): ";
+  for (int i = 0; i < seconds; i++){
+	  Timer::wait(1000);
+	  cout << "*";
+  }
   stop();
 }
 

@@ -3,6 +3,9 @@
 
 #include "Mixer.h"
 #include "Timer.h"
+#include <iostream>
+
+using namespace std;
 
 //
 Mixer::Mixer() : isCleaned(false) {}
@@ -10,16 +13,23 @@ Mixer::Mixer() : isCleaned(false) {}
 //
 void Mixer::clean()
 {
-  // Clean?
-  Timer::wait(2000);
-  isCleaned = true;
+	cout << endl << "Cleaning: ";
+	for (int i = 0; i < 5; i++){
+		Timer::wait(1000);
+		cout << "*";
+	}
+	isCleaned = true;
 }
 
 //
 void Mixer::mix(int seconds)
 {
   start();
-  Timer::wait(seconds * 1000);
+  cout << endl << "Mixing (" << seconds << "s): ";
+  for (int i = 0; i < seconds; i++){
+	Timer::wait(1000);
+	cout << "*";
+  }
   stop();
 }
 
@@ -27,7 +37,12 @@ void Mixer::mix(int seconds)
 void Mixer::drain()
 {
   open();
-  Timer::wait(5000); // Scale?
+  cout << endl << "Draining: ";
+  for (int i = 0; i < 5; i++){
+	  Timer::wait(1000);
+	  cout << "*";
+  }
+  //#### MISSING: SCALE ######
   close();
 }
 
