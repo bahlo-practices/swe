@@ -8,7 +8,9 @@
 using namespace std;
 
 //
-Mixer::Mixer() : isCleaned(false) {}
+Mixer::Mixer() : isEmpty(true), scale(Scale()) {}
+
+Mixer::Mixer(Scale& s) : isEmpty(true), scale(s){}
 
 //
 void Mixer::clean()
@@ -18,7 +20,6 @@ void Mixer::clean()
 		Timer::wait(1000);
 		cout << "*" << flush;
 	}
-	isCleaned = true;
 }
 
 //
@@ -37,12 +38,12 @@ void Mixer::mix(int seconds)
 void Mixer::drain()
 {
   open();
-  cout << endl << "Draining: ";
-  for (int i = 0; i < 5; i++){
+  
+  while (!isEmpty){
 	  Timer::wait(1000);
 	  cout << "*" << flush;
   }
-  //#### MISSING: SCALE ######
+  
   close();
 }
 
@@ -55,9 +56,15 @@ void Mixer::stop() {
 }
 
 void Mixer::open() {
-  // Open drain
+	scale.attach(this);
+	cout << endl << "Draining: ";
 }
 
 void Mixer::close() {
-  // Close drain
+	isEmpty = true;
+	scale.detach(this);
+}
+
+void Mixer::update(){
+	if (scale.getWeight() == 0) close();
 }
