@@ -13,6 +13,7 @@ void Timer::wait(long milliseconds) {
   clock_t limit;
   clock_t now = clock();
   limit = now + milliseconds * CLOCKS_PER_SEC /1000;
-  while ( limit > now )
-  now = clock();
+  while ( limit > now ) now = clock();
 }
+
+Timer::Timer(){}
