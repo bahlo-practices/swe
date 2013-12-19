@@ -9,7 +9,7 @@
 DosingFeeder::DosingFeeder() : isOpen(false){}
 
 //
-DosingFeeder::DosingFeeder(Scale& scale) : isOpen(false), subject(&scale){}
+DosingFeeder::DosingFeeder(Scale& scale) : isOpen(false), subject(&scale) {}
 
 
 void DosingFeeder::dose(const Rezeptschritt& step) {
@@ -40,14 +40,14 @@ void DosingFeeder::update()
     if(subject->getWeight() >= targetWeight) close();
 }
 
-void DosingFeeder::open() 
+void DosingFeeder::open()
 {
   isOpen = true;
   subject->attach(this);
   subject->resetDelta();
 }
 
-void DosingFeeder::close() 
+void DosingFeeder::close()
 {
   isOpen = false;
   subject->detach(this);
