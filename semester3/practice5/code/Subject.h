@@ -6,8 +6,7 @@
 #include <vector>
 #include "Observer.h"
 //
-class Subject
-{
+class Subject {
 
 public:
     //

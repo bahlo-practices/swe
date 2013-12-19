@@ -18,7 +18,7 @@ public:
     void clean();
 private:
     bool isEmpty;
-	Scale& scale;
+	Scale* subject;
 
     void start();
     void stop();
