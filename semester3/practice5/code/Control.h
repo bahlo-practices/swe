@@ -5,7 +5,6 @@
 #include "Pounder.h"
 #include "Mixer.h"
 #include "MixableRecipeBook.h"
-#include "string.h"
 
 using namespace std;
 

@@ -6,20 +6,16 @@
 #include "Timer.h"
 
 //
-DosingFeeder::DosingFeeder() : isOpen(false)
-{
-}
+DosingFeeder::DosingFeeder() : isOpen(false){}
 
 //
-DosingFeeder::DosingFeeder(Scale & scale) : isOpen(false)
-{
-    subject = &scale;
-}
+DosingFeeder::DosingFeeder(Scale& scale) : isOpen(false), subject(&scale){}
 
 
-void DosingFeeder::dose(Rezeptschritt &step) {
+void DosingFeeder::dose(const Rezeptschritt& step) {
   targetWeight = step.getMenge();
-  std::string ingredient = step.getZutat();
+  string ingredient = step.getZutat();
+
   open();
   // Simulate scale
   while(isOpen) {

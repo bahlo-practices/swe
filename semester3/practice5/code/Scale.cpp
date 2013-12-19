@@ -6,7 +6,7 @@
 //
 Scale::Scale() : offset(0), weight(0) {}
 
-int Scale::getWeight()
+int Scale::getWeight() const
 {
   if(offset > weight) return 0;
   return weight + offset;

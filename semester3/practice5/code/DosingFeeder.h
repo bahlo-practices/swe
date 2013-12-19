@@ -6,6 +6,7 @@
 #include "Observer.h"
 #include "MixableRecipeBook.h"
 #include "Scale.h"
+
 //Der Dosierer gibt die Zutat für eine bestimmte Zeit in den Mischbehälter
 class DosingFeeder: public Observer
 {
@@ -13,20 +14,19 @@ class DosingFeeder: public Observer
 public:
     DosingFeeder();
     //
-    DosingFeeder(Scale & scale);
+    DosingFeeder(Scale& scale);
     //
-    void dose(Rezeptschritt & step);
+    void dose(const Rezeptschritt& step);
     
     //
     void update();
 private:
-    //
-    Scale * subject;
+    Scale* subject;
     bool isOpen;
     
     void open();
     void close();
-    int targetWeight;
+    float targetWeight;
 };
 
 #endif

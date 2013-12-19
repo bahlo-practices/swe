@@ -10,7 +10,7 @@ class Scale: public Subject
 
 public:
     Scale();
-    int getWeight();
+    int getWeight() const;
     void resetDelta();
     void adjustWeightBy(int weight);
 private:
