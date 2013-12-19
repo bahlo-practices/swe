@@ -41,6 +41,7 @@ void Mixer::drain()
   
   while (!isEmpty){
 	  Timer::wait(1000);
+	  scale.adjustWeightBy(-25);
 	  cout << "*" << flush;
   }
   
