@@ -21,7 +21,7 @@ void Control::readIngredients(const string& filename) {
     ifstream in;
 
     in.open(filename.c_str());
-    if( !in ) throw "File not found: " + filename;
+    if( !in ) throw "Zutaten-Datei (" + filename + ") wurde nicht gefunden";
 
 	string ingredient;
 	int feeder = 0;
@@ -48,7 +48,7 @@ void Control::run(){
         for(int recipeStep = 0; recipeStep < recipe->getAnzahlRezeptschritte(); recipeStep++) {
             int dosingf = ingredients[ recipe->getRezeptSchritt(recipeStep)->getZutat() ];
             cout << "#" << dosingf << ": " << recipe->getRezeptSchritt(recipeStep)->getMenge() << endl;
-            //#### MISSING #####
+			dosingFeeder[dosingf].dose( *(recipe->getRezeptSchritt(recipeStep)) );
         }
 
         // drain it:
