@@ -17,6 +17,7 @@ void DosingFeeder::dose(const Rezeptschritt& step) {
   string ingredient = step.getZutat();
 
   open();
+
   // Simulate scale
   while(isOpen) {
     if(ingredient == "Eis") {

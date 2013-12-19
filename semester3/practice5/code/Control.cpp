@@ -31,24 +31,40 @@ void Control::readIngredients(const string& filename) {
 }
 
 void Control::run(){
+    char input = ' ';
+    int cocktail = 0;
+    string prompt = "Cocktail wählen (q zum Beenden, t für Turbo): ";
+
     // show all available cocktails:
     mixableRecipeBook.printRecipes();
 
     // get user's choice:
-    cout << "Cocktail wählen (0 zum Beenden): ";
-    int cocktail;
-    cin >> cocktail;
+    if(turbo) cout << "Turbo-";
+    cout << prompt;
+    cin >> input;
 
-    if(cocktail == 0) exit(0);
+    if(input == 'q') exit(0);
+
+    while(input == 't') {
+        if(!turbo) {
+            startTurbo();
+            cout << "Turbo-";
+        } else stopTurbo();
+        cout << prompt;
+        cin >> input;
+    }
+
+    cocktail = atoi(&input);
 
     // mix it:
     Rezept* recipe = mixableRecipeBook.getRezept(cocktail-1); // recipeBook[0] = Cocktail #1
     if(recipe != NULL) {
         cout << "Zutaten für "<< recipe->getName() << endl;
         for(int recipeStep = 0; recipeStep < recipe->getAnzahlRezeptschritte(); recipeStep++) {
-            int dosingf = ingredients[ recipe->getRezeptSchritt(recipeStep)->getZutat() ];
-            cout << "#" << dosingf << ": " << recipe->getRezeptSchritt(recipeStep)->getMenge() << endl;
-			dosingFeeder[dosingf].dose( *(recipe->getRezeptSchritt(recipeStep)) );
+            Rezeptschritt *step = recipe->getRezeptSchritt(recipeStep);
+            int dosingf = ingredients[step->getZutat()];
+            cout << "#" << dosingf << ": " << step->getMenge() << endl;
+			dosingFeeder[dosingf].dose( *step );
         }
 
         // drain it:
