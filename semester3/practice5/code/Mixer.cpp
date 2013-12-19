@@ -8,9 +8,9 @@
 using namespace std;
 
 //
-Mixer::Mixer() : isEmpty(true), scale(Scale()) {}
+Mixer::Mixer() : isEmpty(true) {}
 
-Mixer::Mixer(Scale& s) : isEmpty(true), scale(s){}
+Mixer::Mixer(Scale& scale) : isEmpty(true), subject(&scale) {}
 
 //
 void Mixer::clean()
@@ -38,13 +38,13 @@ void Mixer::mix(int seconds)
 void Mixer::drain()
 {
   open();
-  
+
   while (!isEmpty){
 	  Timer::wait(1000);
-	  scale.adjustWeightBy(-25);
+	  subject->adjustWeightBy(-25);
 	  cout << "*" << flush;
   }
-  
+
   close();
 }
 
@@ -57,15 +57,15 @@ void Mixer::stop() {
 }
 
 void Mixer::open() {
-	scale.attach(this);
+	subject->attach(this);
 	cout << endl << "Draining: ";
 }
 
 void Mixer::close() {
 	isEmpty = true;
-	scale.detach(this);
+	subject->detach(this);
 }
 
 void Mixer::update(){
-	if (scale.getWeight() == 0) close();
+	if (subject->getWeight() == 0) close();
 }
