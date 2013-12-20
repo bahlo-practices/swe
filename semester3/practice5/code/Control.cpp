@@ -19,6 +19,9 @@ Control::Control() {
     for(int i = 0;i < 10;++i) {
         dosingFeeder[i] = DosingFeeder(scale);
     }
+
+    // Initialize Mixer
+    mixer = Mixer(scale);
 }
 
 // Read ingredients

@@ -1,6 +1,7 @@
 //@(#) DosingFeeder.cpp
 
 #include <string>
+#include <iostream>
 
 #include "DosingFeeder.h"
 #include "Timer.h"
@@ -19,19 +20,16 @@ void DosingFeeder::dose(const Rezeptschritt& step) {
   open();
 
   // Simulate scale
-  while(isOpen) {
-    if(ingredient == "Eis") {
-      subject->adjustWeightBy(20);
-      Timer::wait(1000);
-    } else if(ingredient == "Limettenstuecke") {
-      subject->adjustWeightBy(10);
-      Timer::wait(1000);
-    } else {
-      subject->adjustWeightBy(1);
-      Timer::wait(250);
-    }
+  if(ingredient == "Eis") {
+    subject->adjustWeightBy(20);
+    Timer::wait(1000);
+  } else if(ingredient == "Limettenstuecke") {
+    subject->adjustWeightBy(10);
+    Timer::wait(1000);
+  } else {
+    subject->adjustWeightBy(1);
+    Timer::wait(250);
   }
-  close();
 }
 
 
