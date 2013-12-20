@@ -11,7 +11,7 @@ int main() {
   try {
     // Create control class
     Control control;
-
+    
     cout << endl;
     cout << "   ______           __   __        _ ______" << endl;
     cout << "  / ____/___  _____/ /__/ /_____ _(_) / __ \\_________" << endl;

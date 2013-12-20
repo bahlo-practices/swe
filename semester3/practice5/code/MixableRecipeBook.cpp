@@ -17,7 +17,7 @@ MixableRecipeBook::MixableRecipeBook(const map<string, int>& ingredients) {
 
   // Loop through recipes
   int recipeCount = getAnzahlRezepte();
-  for(int i = 0; i < recipeCount; ++i) {
+  for(int i = recipeCount - 1; i >= 0; i--) {
     Rezept* recipe = getRezept(i);
 
     // Loop through recipe steps
@@ -26,12 +26,12 @@ MixableRecipeBook::MixableRecipeBook(const map<string, int>& ingredients) {
     // If there are no steps, don't even try
     if(recipeStepCount == 0) {
       deleteRezept(i);
-      recipeCount--;
+      //recipeCount--;
       continue;
     }
 
     // Loop through steps
-    for(int j = 0; j < recipeStepCount; ++j) {
+    for(int j = recipeStepCount -1; j >= 0; j--) {
 		Rezeptschritt* recipeStep = recipe->getRezeptSchritt(j);
 
 		string ingredient = recipeStep->getZutat();
@@ -39,7 +39,7 @@ MixableRecipeBook::MixableRecipeBook(const map<string, int>& ingredients) {
 
 		// Ingredient not found, bye
 		deleteRezept(i);
-		recipeCount--;
+		// recipeCount--;
 		break;
     }
   }
