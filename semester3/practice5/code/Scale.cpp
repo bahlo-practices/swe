@@ -22,4 +22,5 @@ void Scale::adjustWeightBy(int by)
   weight += (weight + by < 0)
     ? 0
     : weight + by;
+  notify();
 }

@@ -20,15 +20,17 @@ void DosingFeeder::dose(const Rezeptschritt& step) {
   open();
 
   // Simulate scale
-  if(ingredient == "Eis") {
-    subject->adjustWeightBy(20);
-    Timer::wait(1000);
-  } else if(ingredient == "Limettenstuecke") {
-    subject->adjustWeightBy(10);
-    Timer::wait(1000);
-  } else {
-    subject->adjustWeightBy(1);
-    Timer::wait(250);
+  while(isOpen) {
+    if(ingredient == "Eis") {
+      subject->adjustWeightBy(20);
+      Timer::wait(1000);
+    } else if(ingredient == "Limettenstuecke") {
+      subject->adjustWeightBy(10);
+      Timer::wait(1000);
+    } else {
+      subject->adjustWeightBy(1);
+      Timer::wait(250);
+    }
   }
 }
 

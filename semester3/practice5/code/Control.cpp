@@ -39,7 +39,7 @@ void Control::readIngredients(const string& filename) {
 }
 
 void Control::run(){
-    char input = ' ';
+    string input = "";
     int cocktail = 0;
     string prompt = "Cocktail wählen (q zum Beenden, t für Turbo): ";
 
@@ -51,9 +51,7 @@ void Control::run(){
     cout << prompt;
     cin >> input;
 
-    if(input == 'q') exit(0);
-
-    while(input == 't') {
+    while(input.at(0) == 't') {
         if(!turbo) {
             startTurbo();
             cout << "Turbo-";
@@ -62,7 +60,8 @@ void Control::run(){
         cin >> input;
     }
 
-    cocktail = atoi(&input);
+    if(input.at(0) == 'q') exit(0);
+    cocktail = atoi(&input.at(0));
 
     // mix it:
     Rezept* recipe = mixableRecipeBook.getRezept(cocktail-1); // recipeBook[0] = Cocktail #1
