@@ -44,8 +44,6 @@ void Mixer::drain()
 	  subject->adjustWeightBy(-25);
 	  cout << "*" << flush;
   }
-
-  close();
 }
 
 void Mixer::start() {
@@ -67,5 +65,8 @@ void Mixer::close() {
 }
 
 void Mixer::update(){
-	if (subject->getWeight() == 0) close();
+	if (subject->getWeight() == 0) {
+    isEmpty = true;
+    close();
+  }
 }
