@@ -13,7 +13,7 @@ public:
     // Standard constructor
     MixableRecipeBook();
     // Constructor with ingredient list
-    MixableRecipeBook(const map<string, int>& ingredients);
+    MixableRecipeBook(const std::map<std::string, int> & ingredients);
 
     // Print recipes
     void printRecipes();

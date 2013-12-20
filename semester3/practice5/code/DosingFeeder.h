@@ -3,6 +3,7 @@
 #ifndef DOSINGFEEDER_H_H
 #define DOSINGFEEDER_H_H
 
+#include "Rezeptbuch.h"
 #include "Observer.h"
 #include "MixableRecipeBook.h"
 #include "Scale.h"
@@ -12,20 +13,26 @@ class DosingFeeder: public Observer
 {
 
 public:
+    //
     DosingFeeder();
     //
-    DosingFeeder(Scale& scale);
+    DosingFeeder(Scale & scale);
     //
-    void dose(const Rezeptschritt& step);
+    void dose(const Rezeptschritt & step);
 
     //
     void update();
 private:
+    //
     bool isOpen;
-    Scale* subject;
+    //
+    Scale * subject;
 
+    //
     void open();
+    //
     void close();
+    //
     float targetWeight;
 };
 

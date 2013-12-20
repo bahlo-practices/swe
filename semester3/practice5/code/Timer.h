@@ -6,16 +6,18 @@
 #include "Subject.h"
 
 //
-class Timer : public Subject
+class Timer: public Subject
 {
 public:
     //
     static void setTurbo(bool turbo);
+    //
     static void wait(long milliseconds);
 private:
     // private constructor to prevent creation of objects
-	  Timer();
+    Timer();
 
+    //
     static bool turbo;
 };
 

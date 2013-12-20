@@ -10,6 +10,7 @@ class Pounder
 public:
     //
     Pounder();
+    //
     void pound(int seconds);
 private:
 };

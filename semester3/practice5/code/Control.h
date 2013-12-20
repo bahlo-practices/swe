@@ -1,3 +1,4 @@
+#include "string.h"
 #include <map>
 #include <string>
 #include "Scale.h"
@@ -8,6 +9,7 @@
 
 using namespace std;
 
+//
 class Control // controls workflow
 {
     public:
@@ -18,7 +20,7 @@ class Control // controls workflow
     void run();
 
     // Read ingredients
-    void readIngredients(const string& filename);
+    void readIngredients(const std::string & filename);
 
     // Start turbo
     void startTurbo();
@@ -33,7 +35,7 @@ class Control // controls workflow
     DosingFeeder dosingFeeder[10];
 
     // The ingredients
-    map<string, int> ingredients;
+    std::map<std::string, int> ingredients;
 
     // The recipe book
     MixableRecipeBook mixableRecipeBook;
