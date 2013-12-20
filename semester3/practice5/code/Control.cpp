@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <vector>
 #include <iostream>
+#include <iomanip>
 
 #include "Control.h"
 #include "Timer.h"
@@ -67,12 +68,18 @@ void Control::run(){
     // mix it:
     Rezept* recipe = mixableRecipeBook.getRezept(cocktail-1); // recipeBook[0] = Cocktail #1
     if(recipe != NULL) {
-        cout << "Zutaten für "<< recipe->getName() << endl;
-        for(int recipeStep = 0; recipeStep < recipe->getAnzahlRezeptschritte(); recipeStep++) {
+        cout << endl << recipe->getName() << endl;
+        cout << "Dosierer |      Zutat      | Menge | Fortschritt" << endl;
+        cout << "-------- | --------------- | ----- | -----------" << endl;
+        for(int recipeStep = 0; recipeStep < recipe->getAnzahlRezeptschritte(); ++recipeStep) {
             Rezeptschritt *step = recipe->getRezeptSchritt(recipeStep);
             int dosingf = ingredients[step->getZutat()];
-            cout << "#" << dosingf << ": " << step->getMenge() << endl;
+
+            cout << setw(8) << left << dosingf << " | ";
+            cout << setw(15) << left << step->getZutat() << " | ";
+            cout << setw(5) << left << step->getMenge() << " | ";
 			dosingFeeder[dosingf].dose( *step );
+            cout << endl;
         }
 
         // drain it:
