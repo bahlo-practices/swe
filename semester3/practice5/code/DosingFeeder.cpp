@@ -17,7 +17,6 @@ DosingFeeder::DosingFeeder(Scale& scale) : isOpen(false), subject(&scale) {}
 void DosingFeeder::dose(const Rezeptschritt& step) {
   targetWeight = step.getMenge();
   string ingredient = step.getZutat();
-  Mixer mixer = Mixer();
 
   open();
 
@@ -31,9 +30,6 @@ void DosingFeeder::dose(const Rezeptschritt& step) {
       subject->adjustWeightBy(10);
       cout << "*";
       Timer::wait(1000);
-    } else if(ingredient == "Mischen") {
-      mixer.mix(targetWeight);
-      break;
     } else {
       subject->adjustWeightBy(1);
       cout << "*";

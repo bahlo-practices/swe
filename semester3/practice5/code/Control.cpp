@@ -77,8 +77,16 @@ void Control::run(){
 
             cout << setw(8) << left << dosingf << " | ";
             cout << setw(15) << left << step->getZutat() << " | ";
-            cout << setw(5) << left << step->getMenge() << " | ";
-			dosingFeeder[dosingf].dose( *step );
+            cout << setw(5) << step->getMenge() << " | ";
+
+            if(step->getZutat() == "Mischen") {
+                mixer.mix(step->getMenge());
+            } else if(step->getZutat() == "Stampfen") {
+                pounder.pound(step->getMenge());
+            } else {
+                dosingFeeder[dosingf].dose( *step );
+            }
+
             cout << endl;
         }
 

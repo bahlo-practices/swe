@@ -12,8 +12,6 @@ public:
     Pounder();
     void pound(int seconds);
 private:
-    void start();
-    void stop();
 };
 
 #endif

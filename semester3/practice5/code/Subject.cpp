@@ -11,7 +11,7 @@ void Subject::attach(Observer* observer)
 
 void Subject::notify()
 {
-  for(int i = 0; i < observers.size();++i) {
+  for(unsigned int i = 0; i < observers.size();++i) {
     observers.at(i)->update();
   }
 }
