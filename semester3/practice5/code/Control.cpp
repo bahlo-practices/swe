@@ -68,14 +68,20 @@ void Control::run(){
     // mix it:
     Rezept* recipe = mixableRecipeBook.getRezept(cocktail-1); // recipeBook[0] = Cocktail #1
     if(recipe != NULL) {
-        cout << endl << recipe->getName() << endl;
-        cout << "Dosierer |      Zutat      | Menge | Fortschritt" << endl;
+        cout << endl << "---------------------------------------------------------" << endl;
+        cout << recipe->getName() << endl;
+        cout <<  "---------------------------------------------------------" << endl;
+        cout << "Dosierer |  Zutat/Aktion   | Menge |     Fortschritt" << endl;
         cout << "-------- | --------------- | ----- | --------------------" << endl;
         for(int recipeStep = 0; recipeStep < recipe->getAnzahlRezeptschritte(); ++recipeStep) {
             Rezeptschritt *step = recipe->getRezeptSchritt(recipeStep);
             int dosingf = ingredients[step->getZutat()];
-
-            cout << setw(8) << left << dosingf << " | ";
+	    bool isFeeder = (step->getZutat() != "Stampfen" && step->getZutat() != "Mischen");
+	    
+            cout << setw(8) << left;
+	    if(isFeeder) cout << dosingf;
+	    else	 cout << "";
+	    cout << " | ";
             cout << setw(15) << left << step->getZutat() << " | ";
             cout << setw(5) << step->getMenge() << " | " << flush;
 
@@ -89,12 +95,17 @@ void Control::run(){
 
             cout << endl;
         }
-
+        
         // drain it:
+	cout << setw(8) << left << "" << " | " << setw(15) << left << "Entleeren" << " | " << setw(5) << "" << " | " << flush;
         mixer.drain();
-
+	
         // clean:
+	cout << endl << setw(8) << left << "" << " | " << setw(15) << left << "Säubern" << "  | " << setw(5) << "" << " | " << flush;
         mixer.clean();
+	
+	
+        cout << endl << "---------------------------------------------------------" << endl;
 
     } else throw "Fehler: Ungültige Eingabe.";
     cout << endl << endl; // Next run!

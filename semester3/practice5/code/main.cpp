@@ -1,10 +1,13 @@
 #include <iostream>
+#include <iomanip>
 #include <exception>
 #include "Control.h"
 
 using namespace std;
 
 int main() {
+  setlocale(0,"DE");
+  
   try {
     // Create control class
     Control control;

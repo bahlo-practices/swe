@@ -15,7 +15,6 @@ Mixer::Mixer(Scale& scale) : isEmpty(true), subject(&scale) {}
 //
 void Mixer::clean()
 {
-	cout << endl << "Cleaning: ";
 	for (int i = 0; i < 5; i++){
 		Timer::wait(1000);
 		cout << "*" << flush;
@@ -47,7 +46,6 @@ void Mixer::drain()
 
 void Mixer::open() {
 	subject->attach(this);
-	cout << endl << "Draining: ";
 }
 
 void Mixer::close() {
