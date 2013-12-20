@@ -26,7 +26,6 @@ void Mixer::clean()
 void Mixer::mix(int seconds)
 {
   start();
-  cout << endl << "Mixing (" << seconds << "s): ";
   for (int i = 0; i < seconds; i++){
   	Timer::wait(1000);
   	cout << "*" << flush;

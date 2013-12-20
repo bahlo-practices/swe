@@ -18,9 +18,11 @@ int main() {
 
     while(true) control.run();
 
-  } catch(string &e) {
+  } catch(const string &e) {
     cerr << e << endl;
     return 1;
+  } catch(const std::exception &e) {
+    cerr << e.what() << endl;
   } catch(...) {
     cerr << "Ein unbekannter Fehler ist aufgetreten." << endl;
     return 2;

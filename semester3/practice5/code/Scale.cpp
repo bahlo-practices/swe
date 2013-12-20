@@ -1,5 +1,6 @@
 //@(#) Scale.cpp
 
+#include <iostream>
 
 #include "Scale.h"
 
