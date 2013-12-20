@@ -30,11 +30,11 @@ void DosingFeeder::dose(const Rezeptschritt& step) {
   while(isOpen) {
     if(ingredient == "Eis") {
       subject->adjustWeightBy(20);
-      cout << "*" << flush;
+      cout << "#" << flush;
       Timer::wait(1000);
     } else if(ingredient == "Limettenstuecke") {
       subject->adjustWeightBy(10);
-      cout << "*" << flush;
+      cout << "#" << flush;
       Timer::wait(1000);
     } else {
       subject->adjustWeightBy(1);
