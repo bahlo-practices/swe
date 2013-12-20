@@ -63,8 +63,16 @@ void Control::run(){
     }
 
     if(input.at(0) == 'q') exit(0);
+    
     cocktail = atoi(&input.at(0));
-
+    if(cocktail > mixableRecipeBook.getAnzahlRezepte()){
+      cout << endl << "Dieses Rezept gibt es nicht!" << endl << endl << endl;
+      return;
+    } else if(cocktail == 0) {
+      cout << endl << "Unbekannter Befehl!!!!!!!!11111einseinseinself" << endl << endl << endl;
+      return;
+    }
+    
     // mix it:
     Rezept* recipe = mixableRecipeBook.getRezept(cocktail-1); // recipeBook[0] = Cocktail #1
     if(recipe != NULL) {
