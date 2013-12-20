@@ -14,6 +14,11 @@ Control::Control() {
     // Read ingredients
     readIngredients("zutaten.txt");
     mixableRecipeBook = MixableRecipeBook(ingredients);
+
+    // Initialize dosingfeeders
+    for(int i = 0;i < 10;++i) {
+        dosingFeeder[i] = DosingFeeder(scale);
+    }
 }
 
 // Read ingredients

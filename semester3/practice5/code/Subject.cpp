@@ -6,7 +6,6 @@
 
 void Subject::attach(Observer* observer)
 {
-  std::cout << &observers << std::endl;
   observers.push_back(observer);
 }
 
