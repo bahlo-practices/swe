@@ -20,8 +20,6 @@ private:
     bool isEmpty;
 	Scale* subject;
 
-    void start();
-    void stop();
     void open();
     void close();
 

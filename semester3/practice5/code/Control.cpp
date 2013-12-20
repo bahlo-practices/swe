@@ -70,7 +70,7 @@ void Control::run(){
     if(recipe != NULL) {
         cout << endl << recipe->getName() << endl;
         cout << "Dosierer |      Zutat      | Menge | Fortschritt" << endl;
-        cout << "-------- | --------------- | ----- | -----------" << endl;
+        cout << "-------- | --------------- | ----- | --------------------" << endl;
         for(int recipeStep = 0; recipeStep < recipe->getAnzahlRezeptschritte(); ++recipeStep) {
             Rezeptschritt *step = recipe->getRezeptSchritt(recipeStep);
             int dosingf = ingredients[step->getZutat()];

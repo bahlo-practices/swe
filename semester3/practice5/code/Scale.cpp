@@ -15,13 +15,18 @@ int Scale::getWeight() const
 
 void Scale::resetDelta()
 {
-  offset = 0;
+  offset = -weight;
 }
 
 void Scale::adjustWeightBy(int by)
-{
-  weight += (weight + by < 0)
+{ 
+  weight = (weight + by < 0)
     ? 0
     : weight + by;
   notify();
+}
+
+int Scale::getRealWeight() const 
+{
+  return weight;
 }

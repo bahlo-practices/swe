@@ -25,12 +25,10 @@ void Mixer::clean()
 //
 void Mixer::mix(int seconds)
 {
-  start();
   for (int i = 0; i < seconds; i++){
   	Timer::wait(1000);
   	cout << "*" << flush;
   }
-  stop();
 }
 
 //
@@ -47,14 +45,6 @@ void Mixer::drain()
   }
 }
 
-void Mixer::start() {
-  // Start mixing
-}
-
-void Mixer::stop() {
-  // Stop mixing
-}
-
 void Mixer::open() {
 	subject->attach(this);
 	cout << endl << "Draining: ";
@@ -66,7 +56,7 @@ void Mixer::close() {
 }
 
 void Mixer::update(){
-  if (subject->getWeight() == 0) {
+  if (subject->getRealWeight() <= 0) {
     isEmpty = true;
     close();
   }

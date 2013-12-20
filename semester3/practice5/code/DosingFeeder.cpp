@@ -15,8 +15,14 @@ DosingFeeder::DosingFeeder(Scale& scale) : isOpen(false), subject(&scale) {}
 
 
 void DosingFeeder::dose(const Rezeptschritt& step) {
-  targetWeight = step.getMenge();
   string ingredient = step.getZutat();
+  
+  // Get target weight by ingredient
+  if(ingredient == "Limettenstuecke") {
+      targetWeight = step.getMenge() * 10;
+  } else {
+    targetWeight = step.getMenge();
+  }
 
   open();
   
@@ -41,19 +47,20 @@ void DosingFeeder::dose(const Rezeptschritt& step) {
 
 //
 void DosingFeeder::update()
-{
+{	
     if(subject->getWeight() >= targetWeight) close();
 }
 
 void DosingFeeder::open()
 {
+  subject->resetDelta();
   isOpen = true;
   subject->attach(this);
-  subject->resetDelta();
 }
 
 void DosingFeeder::close()
 {
   isOpen = false;
+  targetWeight = 0;
   subject->detach(this);
 }
