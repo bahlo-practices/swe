@@ -14,7 +14,7 @@ using namespace std;
 // Constructor
 Control::Control() : turbo(false) {
     // Read ingredients
-    readIngredients("zutaten.txt");
+    readIngredients("zutaten2.txt");
     mixableRecipeBook = MixableRecipeBook(ingredients);
 
     // Initialize dosingfeeders
