@@ -6,11 +6,12 @@
 #include <iostream>
 
 #include "Control.h"
+#include "Timer.h"
 
 using namespace std;
 
 // Constructor
-Control::Control() {
+Control::Control() : turbo(false) {
     // Read ingredients
     readIngredients("zutaten.txt");
     mixableRecipeBook = MixableRecipeBook(ingredients);
@@ -85,12 +86,12 @@ void Control::run(){
 
 // Stop turbo
 void Control::stopTurbo() {
-    turbo = false;
+    Timer::setTurbo((turbo = false));
 }
 
 // Start turbo
 void Control::startTurbo() {
-    turbo = true;
+    Timer::setTurbo((turbo = true));
 }
 
 //
