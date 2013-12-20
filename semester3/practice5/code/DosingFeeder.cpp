@@ -19,20 +19,20 @@ void DosingFeeder::dose(const Rezeptschritt& step) {
   string ingredient = step.getZutat();
 
   open();
-
+  
   // Simulate scale
   while(isOpen) {
     if(ingredient == "Eis") {
       subject->adjustWeightBy(20);
-      cout << "*";
+      cout << "*" << flush;
       Timer::wait(1000);
     } else if(ingredient == "Limettenstuecke") {
       subject->adjustWeightBy(10);
-      cout << "*";
+      cout << "*" << flush;
       Timer::wait(1000);
     } else {
       subject->adjustWeightBy(1);
-      cout << "*";
+      cout << "*" << flush;
       Timer::wait(250);
     }
   }

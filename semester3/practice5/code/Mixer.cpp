@@ -66,7 +66,7 @@ void Mixer::close() {
 }
 
 void Mixer::update(){
-	if (subject->getWeight() == 0) {
+  if (subject->getWeight() == 0) {
     isEmpty = true;
     close();
   }

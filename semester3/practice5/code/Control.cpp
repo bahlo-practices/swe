@@ -77,7 +77,7 @@ void Control::run(){
 
             cout << setw(8) << left << dosingf << " | ";
             cout << setw(15) << left << step->getZutat() << " | ";
-            cout << setw(5) << step->getMenge() << " | ";
+            cout << setw(5) << step->getMenge() << " | " << flush;
 
             if(step->getZutat() == "Mischen") {
                 mixer.mix(step->getMenge());
