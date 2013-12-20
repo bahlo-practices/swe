@@ -13,7 +13,9 @@ public:
     static void setTurbo(bool turbo);
     static void wait(long milliseconds);
 private:
-    //
+    // private constructor to prevent creation of objects
+	  Timer();
+
     static bool turbo;
 };
 

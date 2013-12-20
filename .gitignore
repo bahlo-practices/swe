@@ -1,9 +1,9 @@
 .DS_Store
 *.bak
 *.o
-*.h~
-*.cpp~
+*~
 *.tmp
 
 *.sublime-project
 *.sublime-workspace
+*.kate-swp

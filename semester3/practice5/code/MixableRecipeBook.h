@@ -3,7 +3,6 @@
 #ifndef MIXABLERECIPEBOOK_H_H
 #define MIXABLERECIPEBOOK_H_H
 
-#include "string.h"
 #include <string>
 #include <map>
 #include "Rezeptbuch.h"

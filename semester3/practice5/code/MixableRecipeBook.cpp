@@ -17,7 +17,7 @@ MixableRecipeBook::MixableRecipeBook(const map<string, int>& ingredients) {
 
   // Loop through recipes
   int recipeCount = getAnzahlRezepte();
-  for(int i = 0; i < recipeCount; ++i) {
+  for(int i = recipeCount - 1; i >= 0; i--) {
     Rezept* recipe = getRezept(i);
 
     // Loop through recipe steps
@@ -26,20 +26,20 @@ MixableRecipeBook::MixableRecipeBook(const map<string, int>& ingredients) {
     // If there are no steps, don't even try
     if(recipeStepCount == 0) {
       deleteRezept(i);
-      recipeCount--;
+      //recipeCount--;
       continue;
     }
 
     // Loop through steps
-    for(int j = 0; j < recipeStepCount; ++j) {
+    for(int j = recipeStepCount -1; j >= 0; j--) {
 		Rezeptschritt* recipeStep = recipe->getRezeptSchritt(j);
-		
+
 		string ingredient = recipeStep->getZutat();
 		if(ingredients.find(ingredient) != ingredients.end() || ingredient == "Mischen" || ingredient == "Stampfen") continue;
-    
+
 		// Ingredient not found, bye
 		deleteRezept(i);
-		recipeCount--;
+		// recipeCount--;
 		break;
     }
   }
@@ -48,16 +48,10 @@ MixableRecipeBook::MixableRecipeBook(const map<string, int>& ingredients) {
 // Print recipes
 void MixableRecipeBook::printRecipes() {
   int recipeCount = getAnzahlRezepte();
-  std::cout << "=================" << std::endl;
+  std::cout << "Verfügbare Rezepte: " << std::endl;
   for(int i = 0;i < recipeCount;++i) {
     Rezept *recipe = getRezept(i);
-    std::cout << recipe->getName() << std::endl;
-    std::cout << "-----------------" << std::endl;
-    int stepCount = recipe->getAnzahlRezeptschritte();
-    for(int j = 0;j < stepCount;++j) {
-        Rezeptschritt *step = recipe->getRezeptSchritt(j);
-        std::cout << "- " << step->getZutat() << std::endl;
-    }
-    std::cout << "=================" << std::endl;
+    std::cout << i+1 << ") " << recipe->getName() << std::endl;
   }
+  std::cout << std::endl;
 }
