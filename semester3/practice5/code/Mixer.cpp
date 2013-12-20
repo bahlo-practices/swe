@@ -28,8 +28,8 @@ void Mixer::mix(int seconds)
   start();
   cout << endl << "Mixing (" << seconds << "s): ";
   for (int i = 0; i < seconds; i++){
-	Timer::wait(1000);
-	cout << "*" << flush;
+  	Timer::wait(1000);
+  	cout << "*" << flush;
   }
   stop();
 }
@@ -38,6 +38,8 @@ void Mixer::mix(int seconds)
 void Mixer::drain()
 {
   open();
+
+  isEmpty = false;
 
   while (!isEmpty){
 	  Timer::wait(1000);
