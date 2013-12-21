@@ -7,17 +7,10 @@ using namespace std;
 
 int main() {
   setlocale(0,"DE");
-  
+
   try {
     // Create control class
     Control control;
-    
-    cout << endl;
-    cout << "   ______           __   __        _ ______" << endl;
-    cout << "  / ____/___  _____/ /__/ /_____ _(_) / __ \\_________" << endl;
-    cout << " / /   / __ \\/ ___/ //_/ __/ __ `/ / / /_/ / ___/ __ \\" << endl;
-    cout << "/ /___/ /_/ / /__/ ,< / /_/ /_/ / / / ____/ /  / /_/ /" << endl;
-    cout << "\\____/\\____/\\___/_/|_|\\__/\\__,_/_/_/_/   /_/   \\____/" << endl << endl;
 
     while(true) control.run();
 
