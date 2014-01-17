@@ -45,7 +45,7 @@ Control::Control() : turbo(false) {
     mixer = Mixer(scale);
 
     // Print logo
-    cout << BOLDMAGENTA << endl;
+    cout << BOLDYELLOW << endl;
     cout << "   ______           __   __        _ ______" << endl;
     cout << "  / ____/___  _____/ /__/ /_____ _(_) / __ \\_________" << endl;
     cout << " / /   / __ \\/ ___/ //_/ __/ __ `/ / / /_/ / ___/ __ \\" << endl;
@@ -73,6 +73,7 @@ void Control::run(){
     string prompt = "Cocktail wählen (q zum Beenden, t für Turbo): ";
 
     // show all available cocktails:
+    cout << BOLDGREEN << "Verfügbare Rezepte:" << RESET << endl;
     mixableRecipeBook.printRecipes();
 
     // get user's choice:

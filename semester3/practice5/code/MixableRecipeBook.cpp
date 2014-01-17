@@ -48,7 +48,6 @@ MixableRecipeBook::MixableRecipeBook(const map<string, int>& ingredients) {
 // Print recipes
 void MixableRecipeBook::printRecipes() {
   int recipeCount = getAnzahlRezepte();
-  std::cout << "Verfügbare Rezepte: " << std::endl;
   for(int i = 0;i < recipeCount;++i) {
     Rezept *recipe = getRezept(i);
     std::cout << i+1 << ") " << recipe->getName() << std::endl;
